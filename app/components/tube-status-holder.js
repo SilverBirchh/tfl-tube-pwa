@@ -7,6 +7,7 @@ import moment from 'moment';
 import {
   inject as service
 } from '@ember/service';
+import { get } from '@ember/object';
 
 const DEBOUNCE_MS = 250;
 const TEN_MINUTES = 600000;
@@ -39,15 +40,20 @@ export default Component.extend({
       this.set('time', moment().format('MMM Do, h:mma'))
       this.get('cookies').write('time', moment().format('MMM Do, h:mma'));
     } else {
-      debugger;
       const time = this.get('cookies').read('time')
       this.set('time', `${time} - OFFLINE`);
     }
   }).drop().cancelOn('deactivate').restartable(),
 
+  updateIsOnline: function() {
+    this.get('getTubeStatus').perform();
+  },
+
   init() {
     this._super(...arguments);
     this.get('getTubeStatus').perform();
     this.get('tubeTimeout').perform();
+    window.addEventListener('online',  this.updateIsOnline.bind(this));
+    window.addEventListener('offline',  this.updateIsOnline.bind(this));
   },
 });
