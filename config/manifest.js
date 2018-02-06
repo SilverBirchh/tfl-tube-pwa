@@ -11,9 +11,14 @@ module.exports = function(/* environment, appConfig */) {
     description: "",
     start_url: "/",
     display: "standalone",
-    background_color: "#fff",
-    theme_color: "#fff",
+    background_color: "#2c3e50",
+    theme_color: "#2c3e50",
     icons: [
+      {
+        "src":"assets/images/logo.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      }
     ],
     ms: {
       tileColor: '#fff'

@@ -5,6 +5,33 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
+    'esw-cache-fallback': {
+      patterns: [
+        'https://api.tfl.gov.uk/line/mode/(.+)',
+      ],
+    },
+
+    'ember-service-worker': {
+      registrationStrategy: 'inline'
+    },
+
+    'asset-cache': {
+      include: [
+        'assets/**/*',
+        '**/fonts/fontawesome-webfont.ttf?v=4.7.0',
+        '**/fonts/fontawesome-webfont.woff?v=4.7.0',
+        '**/fonts/fontawesome-webfont.woff2?v=4.7.0',
+      ],
+
+      manual: [
+       'http://localhost:5200/fonts/fontawesome-webfont.ttf?v=4.7.0'
+      ],
+      lenientErrors: false
+    },
+
+    'ember-font-awesome': {
+      useScss: true, // for ember-cli-sass
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

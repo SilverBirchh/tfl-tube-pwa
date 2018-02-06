@@ -1,0 +1,23 @@
+<div class="header">
+  <h1>TFL Tube Status
+    <button onclick= {{perform getTubeStatus}}>
+      {{#if getTubeStatus.isRunning}}
+        {{fa-icon "refresh" size=2 spin=true}}
+      {{else}}
+        {{fa-icon "refresh" size=2 spin=falses}}
+      {{/if}}
+    </button>
+  </h1>
+</div>
+
+<div class="main">
+  <ul>
+    {{#each tubeStatus as |line|}}
+      {{tube-line line=line}}
+    {{/each}}
+  </ul>
+</div>
+
+<div class="footer">
+  <p>Last update: {{time}}</p>
+</div>

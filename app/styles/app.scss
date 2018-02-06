@@ -1,0 +1,168 @@
+@import "font-awesome";
+
+html, body, body div {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+.holder {
+  font-family: sans-serif;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 57px 1fr 20px;
+  grid-template-areas: "header" "content" "footer";
+}
+
+.main {
+  background-color: #2c3e50;
+  grid-area: content;
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  background-color: #c0392b;
+  grid-area: footer;
+}
+
+.header {
+  background-color: #7f8c8d;
+  grid-area: header;
+  justify-content: center;
+  display: flex;
+}
+
+.header h1 {
+  margin: auto;
+}
+
+.footer p {
+  margin: 0px;
+  text-align: center;
+}
+
+ul {
+  padding: 0px;
+  min-width: 235px;
+  font-family: sans-serif;
+  list-style: none;
+  flex-direction: column;
+  font-size: medium;
+  line-height: 16.5px;
+}
+
+li {
+  flex: 1;
+  display: flex;
+}
+
+.status {
+  flex: 1;
+  transition: all 0.5s ease;
+  float: right;
+  padding: 7px;
+}
+
+.line {
+  flex: 1;
+  text-align: left;
+  padding: 7px;
+}
+
+li span.good-service {
+  color: white;
+  font-weight: normal;
+}
+
+.status-problem {
+  color: red;
+  font-weight: 900;
+}
+
+.central {
+  background-color: #dc241f;
+  color: white;
+}
+
+.bakerloo {
+  background-color: #894e24;
+  color: white;
+}
+
+.circle {
+  background-color: #ffce00;
+  color: black;
+}
+
+.district {
+  background-color: #007229;
+  color: white;
+}
+
+.hammersmith-city {
+  background-color: #d799af;
+  color: black;
+}
+
+.jubilee {
+  background-color: #6a7278;
+  color: white;
+}
+
+.metropolitan {
+  background-color: #751056;
+  color: white;
+}
+
+.northern {
+  background-color: #000000;
+  color: white;
+}
+
+.piccadilly {
+  background-color: #0019a8;
+  color: white;
+}
+
+.victoria {
+  background-color: #00a0e2;
+  color: black;
+}
+
+.waterloo-city {
+  background-color: #76d0bd;
+  color: black;
+}
+
+.dlr {
+  background-color: #00AFAD;
+  color: black;
+}
+
+.london-overground {
+  background-color: #E86A10;
+  color: black;
+}
+
+.tram {
+  background-color: #66CC00;
+  color: white;
+}
+
+.tfl-rail {
+  background-color: #0019A8;
+  color: white;
+}
+
+.national-rail {
+  background-color: #EEEEEE;
+  color: black;
+}

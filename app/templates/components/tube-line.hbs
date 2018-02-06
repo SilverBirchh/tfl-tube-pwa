@@ -1,0 +1,7 @@
+<span class="{{line.id}} line">{{line.name}}</span>
+
+<span class="status status-problem {{statusClass}}">
+    {{#each line.lineStatuses as |status|}}
+      {{status.statusSeverityDescription}}
+    {{/each}}
+  </span>
