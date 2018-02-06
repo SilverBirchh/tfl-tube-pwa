@@ -36,6 +36,7 @@
     "ember-cli-uglify": "^2.0.0",
     "ember-concurrency": "^0.8.14",
     "ember-connection-status": "^1.0.1",
+    "ember-cookies": "^0.1.3",
     "ember-data": "~2.18.0",
     "ember-export-application-global": "^2.0.0",
     "ember-font-awesome": "^4.0.0-rc.2",

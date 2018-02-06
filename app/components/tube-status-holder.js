@@ -5,14 +5,15 @@ import {
 } from 'ember-concurrency';
 import moment from 'moment';
 import {
-  set,
-  get
-} from '@ember/object';
+  inject as service
+} from '@ember/service';
 
 const DEBOUNCE_MS = 250;
 const TEN_MINUTES = 600000;
 
 export default Component.extend({
+  cookies: service(),
+
   classNames: "holder",
 
   time: null,
@@ -30,15 +31,17 @@ export default Component.extend({
 
   getTubeStatus: task(function*() {
     yield timeout(DEBOUNCE_MS);
-    try {
-      const response = yield fetch('https://api.tfl.gov.uk/line/mode/tube/status');
-      const status = yield response.json();
-      this.set('tubeStatus', status);
+    const response = yield fetch('https://api.tfl.gov.uk/line/mode/tube/status');
+    const status = yield response.json();
+    this.set('tubeStatus', status);
 
-      navigator.onLine ? this.set('time', moment().format('MMM Do, h:mma')) : this.set('time', `${this.get('time')} - OFFLINE`);
-    } catch (err) {
-      console.log(err);
-      this.set('time', `${this.get('time')} - OFFLINE`)
+    if (navigator.onLine) {
+      this.set('time', moment().format('MMM Do, h:mma'))
+      this.get('cookies').write('time', moment().format('MMM Do, h:mma'));
+    } else {
+      debugger;
+      const time = this.get('cookies').read('time')
+      this.set('time', `${time} - OFFLINE`);
     }
   }).drop().cancelOn('deactivate').restartable(),
 
