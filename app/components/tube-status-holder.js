@@ -51,8 +51,7 @@ export default Component.extend({
     this.get('getTubeStatus').perform();
   },
 
-  init() {
-    this._super(...arguments);
+  didInsertElement() {
     this.get('getTubeStatus').perform();
     this.get('tubeTimeout').perform();
     window.addEventListener('online',  this.updateIsOnline.bind(this));
