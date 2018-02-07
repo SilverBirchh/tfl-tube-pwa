@@ -24,14 +24,18 @@ module.exports = function(defaults) {
       ],
 
       manual: [
-       'http://localhost:5200/fonts/fontawesome-webfont.ttf?v=4.7.0'
+        'http://localhost:5200/fonts/fontawesome-webfont.ttf?v=4.7.0'
       ],
       lenientErrors: false
     },
 
     'ember-font-awesome': {
       useScss: true, // for ember-cli-sass
-    }
+    },
+
+    vendorFiles: {
+      'jquery.js': null,
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
