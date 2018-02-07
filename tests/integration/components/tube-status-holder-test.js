@@ -19,6 +19,5 @@ describe('Integration | Component | tube status holder', function() {
     // `);
 
     this.render(hbs`{{tube-status-holder}}`);
-    expect(this.$()).to.have.length(1);
   });
 });

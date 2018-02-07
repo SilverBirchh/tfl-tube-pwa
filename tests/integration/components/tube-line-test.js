@@ -19,6 +19,5 @@ describe('Integration | Component | tube line', function() {
     // `);
 
     this.render(hbs`{{tube-line}}`);
-    expect(this.$()).to.have.length(1);
   });
 });

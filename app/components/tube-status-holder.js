@@ -7,6 +7,7 @@ import moment from 'moment';
 import {
   inject as service
 } from '@ember/service';
+import fetch from 'ember-fetch/ajax';
 
 const DEBOUNCE_MS = 250;
 const TEN_MINUTES = 600000;
@@ -31,8 +32,10 @@ export default Component.extend({
 
   getTubeStatus: task(function*() {
     yield timeout(DEBOUNCE_MS);
-    const response = yield fetch('https://api.tfl.gov.uk/line/mode/tube/status');
-    const status = yield response.json();
+
+
+    const status = yield fetch('https://api.tfl.gov.uk/line/mode/tube/status');
+
     this.set('tubeStatus', status);
 
     if (navigator.onLine) {
@@ -48,11 +51,10 @@ export default Component.extend({
     this.get('getTubeStatus').perform();
   },
 
-  init() {
-    this._super(...arguments);
+  didInsertElement() {
     this.get('getTubeStatus').perform();
     this.get('tubeTimeout').perform();
-    window.addEventListener('online',  this.updateIsOnline.bind(this));
-    window.addEventListener('offline',  this.updateIsOnline.bind(this));
+    window.addEventListener('online', this.updateIsOnline.bind(this));
+    window.addEventListener('offline', this.updateIsOnline.bind(this));
   },
 });
