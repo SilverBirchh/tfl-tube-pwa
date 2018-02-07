@@ -32,7 +32,10 @@ export default Component.extend({
 
   getTubeStatus: task(function*() {
     yield timeout(DEBOUNCE_MS);
-    const status = yield fetch('https://api.tfl.gov.uk/line/mode/tube/status');
+
+    try {
+      const status = yield fetch('https://api.tfl.gov.uk/line/mode/tube/status');
+    }
     this.set('tubeStatus', status);
 
     if (navigator.onLine) {
