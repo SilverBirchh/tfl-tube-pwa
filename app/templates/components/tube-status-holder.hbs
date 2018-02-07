@@ -1,6 +1,6 @@
 <div class="header">
   <h1>TFL Tube Status
-    <button onclick= {{perform getTubeStatus}}>
+    <button role="button" aria-label="Get Status" onclick= {{perform getTubeStatus}}>
       {{#if getTubeStatus.isRunning}}
         {{fa-icon "refresh" size=2 spin=true}}
       {{else}}
