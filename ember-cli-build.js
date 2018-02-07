@@ -7,8 +7,10 @@ module.exports = function(defaults) {
     // Add options here
     'esw-cache-fallback': {
       patterns: [
+        '/',
         'https://api.tfl.gov.uk/line/mode/(.+)',
       ],
+      version: '1'
     },
 
     'ember-service-worker': {
@@ -21,10 +23,13 @@ module.exports = function(defaults) {
         '**/fonts/fontawesome-webfont.ttf?v=4.7.0',
         '**/fonts/fontawesome-webfont.woff?v=4.7.0',
         '**/fonts/fontawesome-webfont.woff2?v=4.7.0',
+        '/manifest.webmanifest',
+        '/sw.js'
       ],
 
       manual: [
-       'http://localhost:5200/fonts/fontawesome-webfont.ttf?v=4.7.0'
+        'http://localhost:4200/fonts/fontawesome-webfont.ttf?v=4.7.0',
+        'http://localhost:4200/manifest.webmanifest'
       ],
       lenientErrors: false
     },

@@ -7,7 +7,6 @@ import moment from 'moment';
 import {
   inject as service
 } from '@ember/service';
-import { get } from '@ember/object';
 
 const DEBOUNCE_MS = 250;
 const TEN_MINUTES = 600000;
