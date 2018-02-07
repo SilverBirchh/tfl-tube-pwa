@@ -15,8 +15,8 @@ module.exports = function(/* environment, appConfig */) {
     theme_color: "#2c3e50",
     icons: [
       {
-        "src":"assets/images/logo.png",
-        "sizes": "144x144",
+        "src":"assets/images/logo.v1.png",
+        "sizes": "513x513",
         "type": "image/png"
       }
     ],

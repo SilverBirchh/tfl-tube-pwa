@@ -7,7 +7,10 @@ import moment from 'moment';
 import {
   inject as service
 } from '@ember/service';
+<<<<<<< HEAD
 import fetch from 'ember-fetch/ajax';
+=======
+>>>>>>> master
 
 const DEBOUNCE_MS = 250;
 const TEN_MINUTES = 600000;
