@@ -33,9 +33,9 @@ export default Component.extend({
   getTubeStatus: task(function*() {
     yield timeout(DEBOUNCE_MS);
 
-    try {
-      const status = yield fetch('https://api.tfl.gov.uk/line/mode/tube/status');
-    }
+
+    const status = yield fetch('https://api.tfl.gov.uk/line/mode/tube/status');
+
     this.set('tubeStatus', status);
 
     if (navigator.onLine) {
@@ -54,7 +54,7 @@ export default Component.extend({
   didInsertElement() {
     this.get('getTubeStatus').perform();
     this.get('tubeTimeout').perform();
-    window.addEventListener('online',  this.updateIsOnline.bind(this));
-    window.addEventListener('offline',  this.updateIsOnline.bind(this));
+    window.addEventListener('online', this.updateIsOnline.bind(this));
+    window.addEventListener('offline', this.updateIsOnline.bind(this));
   },
 });
