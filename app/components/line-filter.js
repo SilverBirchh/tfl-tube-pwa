@@ -17,10 +17,12 @@ export default Component.extend({
   tubeStatus: null,
 
   getTubeStatus: task(function*() {
-    if (this.get('filterLines.validLines') !== "all") {
+    if (JSON.parse(localStorage.getItem("lines"))) {
+      this.set('filterLines.validLines', JSON.parse(localStorage.getItem("lines")))
       this.set('tubeStatus', this.get('filterLines.validLines'));
       return this.get('filterLines.validLines');
     }
+
     let status = yield fetch('https://api.tfl.gov.uk/line/mode/tube/status');
     status = yield status.json();
 
@@ -44,6 +46,8 @@ export default Component.extend({
     saveList(index) {
       const val = Ember.get(this.get('tubeStatus')[index], "selected")
       Ember.set(this.get('tubeStatus')[index], "selected", !val);
+
+      localStorage.setItem("lines", JSON.stringify(this.get('tubeStatus')));
       this.set('filterLines.validLines', this.get('tubeStatus'))
     }
 

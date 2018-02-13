@@ -38,12 +38,13 @@ export default Component.extend({
 
     let status = yield fetch('https://api.tfl.gov.uk/line/mode/tube/status');
 
-    if (this.get('filterLines.validLines') !== "all") {
+    if (JSON.parse(localStorage.getItem("lines"))) {
+      this.set('filterLines.validLines', JSON.parse(localStorage.getItem("lines")))
       status = status.filter((line, index) => {
         return this.get('filterLines.validLines')[index].selected;
       })
     }
-    
+
     this.set('tubeStatus', status);
 
     if (navigator.onLine) {
