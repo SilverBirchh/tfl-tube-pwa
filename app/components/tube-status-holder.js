@@ -15,6 +15,8 @@ const TEN_MINUTES = 600000;
 export default Component.extend({
   cookies: service(),
 
+  filterLines: service(),
+
   classNames: "holder",
 
   time: null,
@@ -34,8 +36,14 @@ export default Component.extend({
     yield timeout(DEBOUNCE_MS);
 
 
-    const status = yield fetch('https://api.tfl.gov.uk/line/mode/tube/status');
+    let status = yield fetch('https://api.tfl.gov.uk/line/mode/tube/status');
 
+    if (this.get('filterLines.validLines') !== "all") {
+      status = status.filter((line, index) => {
+        return this.get('filterLines.validLines')[index].selected;
+      })
+    }
+    
     this.set('tubeStatus', status);
 
     if (navigator.onLine) {

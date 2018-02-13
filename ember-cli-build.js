@@ -10,7 +10,7 @@ module.exports = function(defaults) {
         '/',
         'https://api.tfl.gov.uk/line/mode/(.+)',
       ],
-      version: '1'
+      version: '1.1'
     },
 
     'ember-service-worker': {
@@ -39,9 +39,6 @@ module.exports = function(defaults) {
       useScss: true, // for ember-cli-sass
     },
 
-    vendorFiles: {
-      'jquery.js': null,
-    },
   });
 
   // Use `app.import` to add additional libraries to the generated

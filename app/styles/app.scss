@@ -1,6 +1,8 @@
 @import "font-awesome";
 
-html, body, body div {
+body,
+body div,
+html {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -45,12 +47,12 @@ button {
 }
 
 .footer p {
-  margin: 0px;
+  margin: 0;
   text-align: center;
 }
 
 ul {
-  padding: 0px;
+  padding: 0;
   min-width: 235px;
   font-family: sans-serif;
   list-style: none;
@@ -165,4 +167,50 @@ li span.good-service {
 .national-rail {
   background-color: #EEEEEE;
   color: black;
+}
+
+ul.filter {
+  display: flex;
+  background: white;
+  height: fit-content;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid grey;
+}
+
+ul.filter label {
+  margin: 5px;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + label {
+   line-height: 22px;
+   letter-spacing: 1px;
+   color: #333;
+   cursor: pointer;
+}
+
+input[type="checkbox"] + label:before {
+    content: '\00a0';
+    display: inline-block;
+    color: #000;
+    width: 23px;
+    height: 23px;
+    margin-right: 10px;
+    font-family: 'Arial Unicode MS';
+    font-size: 33px;
+    background-color: #eee;
+    text-align: center;
+    box-shadow: inset 0px 0px 3px #aaa;
+    color: #666;
+    position: relative;
+    top: 8px;
+
+}
+
+input[type="checkbox"]:checked + label:before {
+   content: '✓';
 }
