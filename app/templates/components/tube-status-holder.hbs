@@ -16,6 +16,10 @@
     {{#each tubeStatus as |line|}}
       {{tube-line line=line}}
     {{/each}}
+
+    {{#unless tubeStatus}}
+      <li class="noneSelected">No Lines selected</li>
+    {{/unless}}
   </ul>
 </div>
 
